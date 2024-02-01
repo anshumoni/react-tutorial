@@ -1,11 +1,27 @@
-const heading = React.createElement('div',{
-    id:'container'
-},React.createElement('div',{
-    id:'inner'
-},[React.createElement('h1',{
-    id:'heading'
-},'Hello World'),React.createElement('h2',{
-    id:'heading1'
-},'Hello World in h2')]));
+import React, { useEffect } from "react";
+import ReactDOM  from "react-dom/client";
+import Header from "./src/components/Header";
+import Body from "./src/components/Body";
+
+
+const Applayout=()=>{
+    const fetchmenu=async()=>{
+        const data = await fetch("https://www.swiggy.com/api/seo/getListing?lat=22.576257&lng=88.28566529999999");
+        const jsondata = await data.json(); 
+        console.log("json",jsondata);
+    }
+    useEffect(()=>{
+       fetchmenu();
+       //console.log
+    },[])
+    return (
+        <div className=" container w-auto">
+            <Header/>
+            <Body/>
+        </div>
+    )
+
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(heading)
+root.render(<Applayout/>)
