@@ -16,4 +16,10 @@ React tutorial
 - Tree Shaking -remove unused code
 - Diffential Bundling - support older browser
 - Caching
-- 
+
+#Setting up test by Jest
+- Jest install ->npx jest --init
+- Install jsdom library
+- Install @babel/parset-react  to work jsx in test cases
+- Include @babel/parset-react inside by babel config
+- npm i -D @testing-library/jest-dom
